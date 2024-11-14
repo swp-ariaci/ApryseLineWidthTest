@@ -1,0 +1,116 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base_config",
+      "hidden": true,
+      "toolset": "host=x64",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe",
+        "CMAKE_MESSAGE_LOG_LEVEL": "DEBUG",
+        "CMAKE_VERIFY_INTERFACE_HEADER_SETS": "ON"
+      }
+    },
+    {
+      "name": "base_init_win32",
+      "hidden": true,
+      "inherits": "base_config",
+      "architecture": "win32"
+    },
+    {
+      "name": "base_init_x64",
+      "hidden": true,
+      "inherits": "base_config",
+      "architecture": "x64"
+    },
+    {
+      "inherits": "base_init_x64",
+      "name": "compiler-16-amd64",
+      "displayName": "Visual Studio 2019 - amd64",
+      "description": "Using compilers for Visual Studio 16 2019 (x64 architecture)",
+      "generator": "Visual Studio 16 2019",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    },
+    {
+      "inherits": "base_init_win32",
+      "name": "compiler-16-amd64_x86",
+      "displayName": "Visual Studio 2019 - amd64_x86",
+      "description": "Using compilers for Visual Studio 16 2019 (x64_x86 architecture)",
+      "generator": "Visual Studio 16 2019",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    },
+    {
+      "inherits": "base_init_x64",
+      "name": "compiler-17-amd64",
+      "displayName": "Visual Studio 2022 - amd64",
+      "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    },
+    {
+      "inherits": "base_init_win32",
+      "name": "compiler-17-amd64_x86",
+      "displayName": "Visual Studio 2022 - amd64_x86",
+      "description": "Using compilers for Visual Studio 17 2022 (x64_x86 architecture)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "compiler-16-amd64-debug",
+      "displayName": "Visual Studio 2019 - amd64 - Debug",
+      "configurePreset": "compiler-16-amd64",
+      "configuration": "Debug"
+    },
+    {
+      "name": "compiler-16-amd64-release",
+      "displayName": "Visual Studio 2019 - amd64 - Release",
+      "configurePreset": "compiler-16-amd64",
+      "configuration": "Release"
+    },
+    {
+      "name": "compiler-16-amd64_x86-debug",
+      "displayName": "Visual Studio 2019 - amd64_x86 - Debug",
+      "configurePreset": "compiler-16-amd64_x86",
+      "configuration": "Debug"
+    },
+    {
+      "name": "compiler-16-amd64_x86-release",
+      "displayName": "Visual Studio 2019 - amd64_x86 - Release",
+      "configurePreset": "compiler-16-amd64_x86",
+      "configuration": "Release"
+    },
+    {
+      "name": "compiler-17-amd64-debug",
+      "displayName": "Visual Studio 2022 - amd64 - Debug",
+      "configurePreset": "compiler-17-amd64",
+      "configuration": "Debug"
+    },
+    {
+      "name": "compiler-17-amd64-release",
+      "displayName": "Visual Studio 2022 - amd64 - Release",
+      "configurePreset": "compiler-17-amd64",
+      "configuration": "Release"
+    },
+    {
+      "name": "compiler-17-amd64_x86-debug",
+      "displayName": "Visual Studio 2022 - amd64_x86 - Debug",
+      "configurePreset": "compiler-17-amd64_x86",
+      "configuration": "Debug"
+    },
+    {
+      "name": "compiler-17-amd64_x86-release",
+      "displayName": "Visual Studio 2022 - amd64_x86 - Release",
+      "configurePreset": "compiler-17-amd64_x86",
+      "configuration": "Release"
+    }
+  ]
+}
