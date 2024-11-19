@@ -1,6 +1,0 @@
-#pragma once
-
-#cmakedefine APRYSE_LICENSE_KEY "$ENV{APRYSE_LICENSE_KEY}"
-#ifndef APRYSE_LICENSE_KEY 
-    #error "Please enter your license key by defining APRYSE_LICENSE_KEY in header license.h"
-#endif
